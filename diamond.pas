@@ -1,30 +1,35 @@
-program fib;
+program DiamondProc;
 
-function Fibonacci(n: integer): longint;
+procedure PrintSpaces(count: integer);
 var
     i: integer;
-    p, q, r: longint;
 begin
-    if n <= 0 then
-        Fibonacci := 0
-    else
+    for i := 1 to count do
+            write(' ')
+end;
+
+procedure PrintLineOfDiamond(k, n: integer);
+begin
+    PrintSpaces(n + 1 - k);
+    write('*');
+    if k > 1 then
     begin
-        q := 0;
-        r := 1;
-        for i := 2 to n do
-        begin
-            p := q;
-            q := r;
-            r := p + q;
-        end;
-        Fibonacci := r
-    end
+        PrintSpaces(2 * k - 3);
+        write('*');
+    end;
+    writeln
 end;
 
 var
-    x: integer;
+    n, k, h: integer;
 begin
-    read(x);
-    x := Fibonacci(x);
-    writeln(x)
+    repeat
+        writeln('Enter the diamond''s height (positive odd): ');
+        readln(h)
+    until (h > 0) and (h mod 2 = 1);
+    n := h div 2;
+    for k := 1 to n + 1 do
+        PrintLineOfDiamond(k, n);
+    for k := n downto 1 do
+        PrintLineOfDiamond(k, n)
 end.
