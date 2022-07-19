@@ -1,4 +1,4 @@
-program SkipIdented;
+program SkipIndented;
 var
     c: char;
     know, print: boolean;
