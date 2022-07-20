@@ -22,7 +22,7 @@ begin
     while tmp <> nil do begin
         writeln(tmp^.data);
         tmp := tmp^.next
-    end
+    end;
     while first <> nil do begin
         tmp := first^.next;
         dispose(first);
