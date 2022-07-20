@@ -23,4 +23,16 @@ begin
         writeln(tmp^.data);
         tmp := tmp^.next
     end
+    while first <> nil do begin
+        tmp := first^.next;
+        dispose(first);
+        first := tmp;
+    end
+    { Alternative deleting:
+    while first <> nil do begin
+        tmp := first;
+        first := first^.next;
+        dispose(tmp)
+    end
+    }
 end.
