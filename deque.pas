@@ -56,7 +56,8 @@ begin
     deque.first := deque.first^.next;
     if deque.first = nil then
         deque.last := nil;
-    dispose(tmp)
+    if tmp <> nil then
+        dispose(tmp)
 end;
 
 procedure LongDequePopBack(var deque: LongDeque; var n: longint);
@@ -68,7 +69,8 @@ begin
     deque.last := deque.last^.prev;
     if deque.last = nil then
         deque.first := nil;
-    dispose(tmp)
+    if tmp <> nil then
+        dispose(tmp)
 end;
 
 function LongDequeIsEmpty(var deque: LongDeque) : boolean;
@@ -87,8 +89,8 @@ begin
         LongDequePushBack(s, n);
     end;
     while not LongDequeIsEmpty(s) do begin
-        { LongDequePopFront(s, n);
-        writeln(n)}
+        LongDequePopFront(s, n);
+        writeln(n);
         LongDequePopBack(s, n);
         writeln(n)
     end
