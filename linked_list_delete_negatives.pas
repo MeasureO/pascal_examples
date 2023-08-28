@@ -50,3 +50,30 @@ begin
     end
     }
 end.
+
+{Ugly solution :
+if first <> nil then
+begin
+    while first^.data < 0 do
+    begin
+        tmp := first;
+        first := first^.next;
+        dispose(tmp)
+    end
+end;
+if first <> nil then
+begin
+    tmp := first;
+    while tmp^.next <> nil do
+    begin
+        if tmp^.next^.data < 0 then
+        begin
+            tmp2 := tmp^.next;
+            tmp^.next := tmp^.next^.next;
+            dispose(tmp2)
+        end
+        else
+            tmp := tmp^.next
+    end
+end
+}
